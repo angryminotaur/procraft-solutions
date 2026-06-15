@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProCraft Solutions | Siding, Roofing & Construction</title>
+  <meta name="description" content="With over 15 years of experience, ProCraft Solutions specializes in siding, roofing, windows, and general construction. High-quality workmanship and exceptional service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2c5fad;
+      --blue-dark: #1a4396;
+      --blue-deeper: #0d2a5e;
+      --blue-light: #e6edf8;
+      --blue-muted: #b8d4ff;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --bg: #ffffff;
+      --bg-secondary: #f8f9fb;
+      --border: #e5e7eb;
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 68px;
+    }
+    .nav-inner {
+      max-width: 72rem; margin: 0 auto; height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon { width: 38px; height: 38px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon i { color: #fff; font-size: 20px; }
+    .nav-logo-name { font-size: 17px; font-weight: 600; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 14px; color: var(--text-muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { background: var(--blue); color: #fff; border: none; padding: 10px 22px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--blue-dark); }
+    .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: var(--text); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10,31,71,0.72), rgba(10,31,71,0.72)), url('hero-bg.jpg') center/cover no-repeat;
+      padding: 90px 40px 80px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: var(--blue-muted);
+      font-size: 13px; font-weight: 500;
+      padding: 5px 18px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 22px;
+    }
+    .hero h1 { font-size: 46px; font-weight: 600; color: #fff; line-height: 1.15; margin-bottom: 18px; }
+    .hero-sub { font-size: 17px; color: var(--blue-muted); max-width: 520px; margin: 0 auto 38px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--blue); border: none; padding: 14px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .btn-white:hover { background: #f0f4ff; }
+    .btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); padding: 12px 28px; border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+    .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .hero-stats { display: flex; gap: 0; justify-content: center; margin-top: 56px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 40px; flex-wrap: wrap; }
+    .hero-stat { flex: 1; min-width: 140px; text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num { font-size: 30px; font-weight: 600; color: #fff; }
+    .hero-stat-label { font-size: 13px; color: var(--blue-muted); margin-top: 4px; }
+
+    /* SECTIONS */
+    section { padding: 72px 40px; }
+    .inner { max-width: 980px; margin: 0 auto; }
+    .inner-6xl { max-width: 72rem; margin: 0 auto; }
+    .section-label { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+    h2.sh { font-size: 30px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    p.sd { font-size: 15px; color: var(--text-muted); margin-bottom: 44px; }
+
+    /* WHY CARDS */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+    .why-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 18px; }
+    .why-card i { font-size: 28px; color: var(--blue); margin-bottom: 14px; display: block; }
+    .why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .why-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* SERVICES */
+    .services-bg { background: var(--bg-secondary); }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+    .tab { padding: 9px 20px; border-radius: var(--radius); border: 1px solid var(--border); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--text-muted); transition: all 0.15s; }
+    .tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .tab:hover:not(.active) { border-color: var(--blue); color: var(--blue); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .svc-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: #fff; margin-bottom: 24px; }
+    .svc-item { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 15px; }
+    .svc-item:nth-last-child(-n+2) { border-bottom: none; }
+    .svc-item i { color: var(--blue); font-size: 17px; flex-shrink: 0; }
+    .btn-blue { background: var(--blue); color: #fff; border: none; padding: 13px 28px; border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+    .btn-blue:hover { background: var(--blue-dark); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .stars { display: flex; gap: 4px; align-items: center; margin-bottom: 22px; }
+    .stars i { color: #f59e0b; font-size: 17px; }
+    .stars span { font-size: 14px; color: var(--text-muted); margin-left: 6px; }
+    .about-feature { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+    .about-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .about-icon i { color: var(--blue); font-size: 20px; }
+    .about-feature h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+    .about-feature p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* PROCESS */
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .process-step { display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; flex-shrink: 0; }
+    .process-step h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .process-step p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* FORM */
+    .form-section { background: var(--blue-deeper); }
+    .form-wrap { max-width: 640px; margin: 0 auto; }
+    .form-wrap h2 { font-size: 30px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .form-wrap p { font-size: 15px; color: var(--blue-muted); margin-bottom: 34px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--blue-muted); margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 11px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      font-size: 14px; color: #fff;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.15s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: rgba(255,255,255,0.6); }
+    .form-group select option { color: var(--text); background: #fff; }
+    .form-group textarea { resize: vertical; }
+    .btn-submit { width: 100%; padding: 15px; background: #fff; color: var(--blue); border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.15s; margin-top: 6px; }
+    .btn-submit:hover { background: #f0f4ff; }
+    .form-note { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 12px; }
+
+    /* FOOTER */
+    footer {
+      background: #0a1f47;
+      padding: 44px 40px 28px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 36px; }
+    .footer-brand-name { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .footer-brand-name i { color: var(--blue-muted); }
+    .footer-tagline { font-size: 13px; line-height: 1.6; margin-bottom: 16px; }
+    .footer-contact a { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--blue-muted); margin-bottom: 8px; }
+    .footer-contact a:hover { color: #fff; }
+    .footer-col h5 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 8px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 13px; }
+
+    /* TOAST */
+    #toast { position: fixed; bottom: 30px; right: 30px; background: #22c55e; color: #fff; padding: 14px 22px; border-radius: var(--radius); font-size: 14px; font-weight: 500; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* MOBILE NAV MENU */
+    .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 200; padding: 24px 28px; flex-direction: column; gap: 24px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; }
+    .mobile-menu a { font-size: 20px; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+      .hero { padding: 60px 20px; }
+      .hero h1 { font-size: 30px; }
+      section { padding: 52px 20px; }
+      .about-grid, .process-grid, .form-row { grid-template-columns: 1fr; }
+      .svc-list { grid-template-columns: 1fr; }
+      .svc-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .svc-item:last-child { border-bottom: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      footer { padding: 36px 20px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 16px; }
+      .hero-stat:last-child { border-bottom: none; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <span style="font-size:17px;font-weight:600;">ProCraft Solutions</span>
+    <button onclick="closeMobileMenu()" style="background:none;border:none;cursor:pointer;font-size:26px;color:var(--text);">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#process" onclick="closeMobileMenu()">Our Process</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <button class="btn-blue" onclick="closeMobileMenu();scrollTo('#contact')" style="width:100%;padding:14px;font-size:16px;">Get a Free Quote</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+  <div class="nav-logo">
+    <img src="logo.png" alt="ProCraft Solutions" style="height:48px;width:auto;">
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Our Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="tel:6205771396" class="nav-links" style="display:flex;align-items:center;gap:6px;font-size:14px;color:var(--blue);font-weight:500;">
+      <i class="ti ti-phone" style="font-size:16px;"></i>(620) 577-1396
+    </a>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><i class="ti ti-star-filled" style="font-size:12px;vertical-align:-1px;margin-right:5px;"></i>15+ Years of Trusted Service</div>
+  <h1>Your trusted contractors<br>for siding, roofing & more</h1>
+  <p class="hero-sub">High-quality workmanship and exceptional service — dedicated to bringing your vision to life.</p>
+  <div class="hero-btns">
+    <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+    <button class="btn-outline-white" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">15+</div>
+      <div class="hero-stat-label">Years of experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">Client satisfaction</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">500+</div>
+      <div class="hero-stat-label">Projects completed</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section style="background:var(--bg-secondary);">
+  <div class="inner">
+    <span class="section-label">Why choose us</span>
+    <h2 class="sh">We go beyond the competition</h2>
+    <p class="sd">Trusted by hundreds of homeowners and businesses — here's what sets us apart</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="ti ti-medal"></i>
+        <h3>15+ years of expertise</h3>
+        <p>Proven experience across siding, roofing, windows, and general construction.</p>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-users"></i>
+        <h3>Customer-first approach</h3>
+        <p>We treat your home with the care and respect it deserves, every single time.</p>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-hammer"></i>
+        <h3>Quality craftsmanship</h3>
+        <p>Premium materials and meticulous execution on every project, big or small.</p>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-clock-check"></i>
+        <h3>On-time completion</h3>
+        <p>We respect your schedule and deliver projects efficiently and on deadline.</p>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-shield-check"></i>
+        <h3>Satisfaction guaranteed</h3>
+        <p>We stand behind our work with a comprehensive quality guarantee on all projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="inner">
+    <span class="section-label">What we do</span>
+    <h2 class="sh">Our services</h2>
+    <p class="sd">Comprehensive construction solutions for your home or business</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('siding',this)">Siding</button>
+      <button class="tab" onclick="showTab('roofing',this)">Roofing</button>
+      <button class="tab" onclick="showTab('windows',this)">Windows</button>
+      <button class="tab" onclick="showTab('general',this)">General construction</button>
+    </div>
+
+    <div id="siding" class="tab-panel active">
+      <div class="svc-list">
+        <div class="svc-item"><i class="ti ti-check"></i>Vinyl siding installation</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Fiber cement siding</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Wood siding &amp; trim</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Siding repair &amp; replacement</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Insulated siding systems</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Soffit &amp; fascia</div>
+      </div>
+      <button class="btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free consultation</button>
+    </div>
+
+    <div id="roofing" class="tab-panel">
+      <div class="svc-list">
+        <div class="svc-item"><i class="ti ti-check"></i>Asphalt shingle roofing</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Metal roofing systems</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Roof repair &amp; patching</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Full roof replacement</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Gutters &amp; downspouts</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Roof inspection</div>
+      </div>
+      <button class="btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free consultation</button>
+    </div>
+
+    <div id="windows" class="tab-panel">
+      <div class="svc-list">
+        <div class="svc-item"><i class="ti ti-check"></i>Window installation</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Window replacement</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Energy-efficient windows</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Storm windows</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Window trim &amp; casing</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Custom window sizing</div>
+      </div>
+      <button class="btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free consultation</button>
+    </div>
+
+    <div id="general" class="tab-panel">
+      <div class="svc-list">
+        <div class="svc-item"><i class="ti ti-check"></i>Home additions</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Deck &amp; porch construction</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Drywall &amp; framing</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Interior &amp; exterior painting</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Demolition services</div>
+        <div class="svc-item"><i class="ti ti-check"></i>Repair &amp; maintenance</div>
+      </div>
+      <button class="btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free consultation</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--bg-secondary);">
+  <div class="inner">
+    <div class="about-grid">
+      <div>
+        <span class="section-label">About ProCraft</span>
+        <h2 class="sh" style="margin-bottom:14px;">Committed to exceptional craftsmanship</h2>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;">
+          With over 15 years of experience in the industry, we specialize in siding, roofing, windows, and general construction. Committed to delivering high-quality workmanship and exceptional service, we are dedicated to helping you bring your vision to life.
+        </p>
+        <div class="stars">
+          <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          <span>100% recommended &middot; 5 reviews</span>
+        </div>
+        <button class="btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact us today</button>
+      </div>
+      <div>
+        <div class="about-feature">
+          <div class="about-icon"><i class="ti ti-home-2"></i></div>
+          <div>
+            <h4>Residential &amp; commercial</h4>
+            <p>We serve both homeowners and businesses with the same standard of excellence.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-icon"><i class="ti ti-map-pin"></i></div>
+          <div>
+            <h4>Local &amp; reliable</h4>
+            <p>Proudly serving our local community with honest, transparent service you can count on.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-icon"><i class="ti ti-license"></i></div>
+          <div>
+            <h4>Licensed &amp; insured</h4>
+            <p>Full coverage so your project and property are always protected throughout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="inner">
+    <span class="section-label">How it works</span>
+    <h2 class="sh">Our process</h2>
+    <p class="sd">Simple, transparent, and stress-free from start to finish</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div><h4>Leave a request</h4><p>Fill out our quick form or call us and tell us about your project.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div><h4>Initial consultation</h4><p>We contact you promptly to discuss your vision and goals.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div><h4>Free on-site visit</h4><p>We come to you, assess the scope, and take precise measurements.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div><h4>Transparent estimate</h4><p>You receive a detailed, itemized quote — no hidden fees, ever.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div><h4>Professional installation</h4><p>Our skilled team executes with precision and respect for your property.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">6</div>
+        <div><h4>Final walkthrough</h4><p>We review every detail together until you're completely satisfied.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="form-section" id="contact">
+  <div class="form-wrap">
+    <h2>Get your free quote</h2>
+    <p>Our specialist will contact you to schedule a convenient appointment</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="fname" placeholder="John Smith" />
+      </div>
+      <div class="form-group">
+        <label>Phone number</label>
+        <input type="tel" id="fphone" placeholder="(620) 555-0000" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Service needed</label>
+      <select id="fservice">
+        <option value="">Select a service...</option>
+        <option>Siding installation or repair</option>
+        <option>Roofing installation or repair</option>
+        <option>Window installation or replacement</option>
+        <option>General construction</option>
+        <option>Multiple services</option>
+        <option>Other / not sure yet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message (optional)</label>
+      <textarea id="fmessage" rows="3" placeholder="Tell us a bit about your project..."></textarea>
+    </div>
+    <button class="btn-submit" onclick="submitForm()">Send a request &rarr;</button>
+    <p class="form-note">We will never share or sell your information. Expect a call within 1 business day.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner-6xl">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name"><i class="ti ti-home-2"></i>ProCraft Solutions</div>
+        <p class="footer-tagline">Specializing in siding, roofing, windows, and general construction. Bringing your vision to life for over 15 years.</p>
+        <div class="footer-contact">
+          <a href="tel:6205771396"><i class="ti ti-phone"></i>(620) 577-1396</a>
+          <a href="mailto:pro.craftsolutions123@gmail.com"><i class="ti ti-mail"></i>pro.craftsolutions123@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#services" onclick="showTab('siding',document.querySelector('.tab'))">Siding</a>
+        <a href="#services">Roofing</a>
+        <a href="#services">Windows</a>
+        <a href="#services">General construction</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#about">About us</a>
+        <a href="#process">Our process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get in touch</h5>
+        <a href="#contact">Free quote</a>
+        <a href="tel:6205771396">Call us</a>
+        <a href="mailto:pro.craftsolutions123@gmail.com">Email us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ProCraft Solutions. All rights reserved.</p>
+      <p style="font-size:13px;">Built with care for our community.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"><i class="ti ti-check" style="margin-right:6px;"></i>Request sent! We'll be in touch soon.</div>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+    btn.classList.add('active');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+    document.getElementById('fname').value = '';
+    document.getElementById('fphone').value = '';
+    document.getElementById('fservice').value = '';
+    document.getElementById('fmessage').value = '';
+  }
+  /* Scroll animations */
+  const animEls = document.querySelectorAll(
+    '.section-label, h2.sh, p.sd, .why-card, .service-card, .step, .form-wrap, .about-img, .about-text, .hero h1, .hero-sub, .hero-btns, .hero-badge, .hero-stat'
+  );
+  animEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  });
+  const heroEls = document.querySelectorAll('.hero-badge, .hero h1, .hero-sub, .hero-btns, .hero-stat');
+  heroEls.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 150 + i * 120);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const siblings = Array.from(el.parentElement.children).filter(c => animEls.values ? [...animEls].includes(c) : c.classList.contains(el.className.split(' ')[0]));
+        const idx = siblings.indexOf(el);
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, idx * 80);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  animEls.forEach(el => {
+    if (!el.closest('.hero')) io.observe(el);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
